@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>SpringCloudLearning</groupId>
     <artifactId>SpringCloudLearning</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -16,6 +17,11 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
     </properties>
+    <modules>
+        <module>eureka-client-one</module>
+        <module>eureka-server</module>
+        <module>gateway-client</module>
+    </modules>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -27,8 +33,28 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
 
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
